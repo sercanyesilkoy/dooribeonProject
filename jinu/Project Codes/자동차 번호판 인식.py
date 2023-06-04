@@ -211,8 +211,8 @@ plt.imshow(temp_result, cmap='gray')
 
 PLATE_WIDTH_PADDING = 1.3 # 1.3
 PLATE_HEIGHT_PADDING = 1.5 # 1.5
-MIN_PLATE_RATIO = 3
-MAX_PLATE_RATIO = 10
+MIN_PLATE_RATIO = 2
+MAX_PLATE_RATIO = 15
 
 plate_imgs = []
 plate_infos = []
