@@ -30,3 +30,23 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
 tracker = Sort(max_age=20, min_hits=3,iou_threshold=0.3)
 limits = [535, 495, 1280, 470]
 countG = 0
+
+while True:
+    stop = None
+
+    ret, frame = cap.read()
+    result = model(frame,stream=True)
+
+    car_counter = 0  # Reset the car counter for each frame
+    person_counter = 0  # Reset the person counter for each frame
+    truckOrBus_counter = 0  # Reset the truck or bus counter for each frame
+
+    dedections = np.empty((0,5))
+    for r in result:
+        boxes = r.boxes
+        for box in boxes:
+            x1,y1,x2,y2 = box.xyxy[0]
+            x1, y1, x2, y2 = int(x1),int(y1),int(x2),int(y2)
+            w,h = x2-x1, y2-y1 #weight and height
+            print(x1,y1,x2,y2)
+
