@@ -96,3 +96,6 @@ while True:
                         filename = f'capture{countG}.png'
                         # saving image in local storage
                         cv2.imwrite(filename, bbox_image)                           
+    resultsTracker = tracker.update(dedections)
+
+    cv2.line(frame,(limits[0],limits[1]),(limits[2],limits[3]),(0,0,255),5)
