@@ -51,3 +51,8 @@ while True:
             x1, y1, x2, y2 = int(x1),int(y1),int(x2),int(y2)
             w,h = x2-x1, y2-y1 #weight and height
             print(x1,y1,x2,y2)
+            cls = int(box.cls[0])
+
+            currentClass = classNames[cls]
+
+            conf = math.ceil((box.conf[0]*100))/100            
