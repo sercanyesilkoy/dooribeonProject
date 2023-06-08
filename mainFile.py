@@ -41,3 +41,5 @@ while True:
     car_counter = 0  # Reset the car counter for each frame
     person_counter = 0  # Reset the person counter for each frame
     truckOrBus_counter = 0  # Reset the truck or bus counter for each frame    
+    
+    dedections = np.empty((0,5)) #for boundry boxes
