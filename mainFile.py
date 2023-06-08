@@ -82,3 +82,9 @@ while True:
                     stop = "CAR"
                 elif person_counter > car_counter and car_counter < 4:
                     stop = "CAR"
+
+                if stop == "CAR" or stop == "TRUCK":
+                    stop_flag = True
+                else:
+                    stop_flag = False
+                                    
