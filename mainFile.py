@@ -67,3 +67,7 @@ while True:
                     person_counter += 1                    
                 elif currentClass == "truck" or currentClass == "truck":
                     truckOrBus_counter += 1                    
+                
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 200, 0), 2)
+                cx,cy = x1+w //2, y1+h//2
+                cv2.circle(frame,(cx,cy),5,(0,200,0),cv2.FILLED)                    
