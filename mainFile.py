@@ -30,3 +30,14 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
 tracker = Sort(max_age=20, min_hits=3,iou_threshold=0.3)
 limits = [535, 495, 1280, 470]
 countG = 0
+
+while True:
+    stop = None
+
+    ret, frame = cap.read()
+    original_frame = frame.copy()  # Keep a copy of the original frame
+    result = model(frame,stream=True)
+
+    car_counter = 0  # Reset the car counter for each frame
+    person_counter = 0  # Reset the person counter for each frame
+    truckOrBus_counter = 0  # Reset the truck or bus counter for each frame    
