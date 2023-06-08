@@ -43,3 +43,11 @@ while True:
     truckOrBus_counter = 0  # Reset the truck or bus counter for each frame    
     
     dedections = np.empty((0,5)) #for boundry boxes
+    
+    for r in result:
+        boxes = r.boxes
+        for box in boxes:
+            x1,y1,x2,y2 = box.xyxy[0]
+            x1, y1, x2, y2 = int(x1),int(y1),int(x2),int(y2)
+            w,h = x2-x1, y2-y1 #weight and height
+            print(x1,y1,x2,y2)
