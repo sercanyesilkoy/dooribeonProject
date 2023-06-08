@@ -63,3 +63,5 @@ while True:
                                    scale=1.5, thickness=2)  # edited                            
                 if currentClass == "car":
                     car_counter += 1                
+                elif currentClass == "person":
+                    person_counter += 1                    
