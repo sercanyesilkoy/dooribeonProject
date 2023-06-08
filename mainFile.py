@@ -59,4 +59,5 @@ while True:
             if currentClass == "car" or currentClass == "person" or currentClass == "bus"\
                     or currentClass == "truck" and conf > 0.1:
                 print(conf,currentClass)
-                            
+                cvzone.putTextRect(frame, f'{conf} {currentClass}', (max(0, x1), max(35, y1)),
+                                   scale=1.5, thickness=2)  # edited                            
