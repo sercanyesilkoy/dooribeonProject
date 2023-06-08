@@ -65,3 +65,5 @@ while True:
                     car_counter += 1                
                 elif currentClass == "person":
                     person_counter += 1                    
+                elif currentClass == "truck" or currentClass == "truck":
+                    truckOrBus_counter += 1                    
