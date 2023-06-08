@@ -56,3 +56,7 @@ while True:
             currentClass = classNames[cls]
 
             conf = math.ceil((box.conf[0]*100))/100            
+            if currentClass == "car" or currentClass == "person" or currentClass == "bus"\
+                    or currentClass == "truck" and conf > 0.1:
+                print(conf,currentClass)
+                            
