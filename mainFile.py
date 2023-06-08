@@ -90,4 +90,9 @@ while True:
                 
                 if ((x1 <= limits[2] and x2 >= limits[0]) and (y1 <= limits[3] and y2 >= limits[1])):
                     if currentClass != "person":
-                        countG += 1                                    
+                        countG += 1
+                        bbox_image = original_frame[y1:y2, x1:x2]  # Crop the image to the bounding box
+                        cv2.imshow(f'capture{countG}', bbox_image)
+                        filename = f'capture{countG}.png'
+                        # saving image in local storage
+                        cv2.imwrite(filename, bbox_image)                           
