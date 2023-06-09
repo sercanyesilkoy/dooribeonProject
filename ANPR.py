@@ -1,4 +1,3 @@
-#%%
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -253,7 +252,7 @@ def anpr(img):
         })
 
 
-    # ## Another Thresholding to Find Chars
+    # Another Thresholding to Find Chars
 
     longest_idx, longest_text = -1, 0
     plate_chars = []
@@ -319,8 +318,6 @@ def anpr(img):
         plt.subplot(len(plate_imgs), 1, i+1)
         plt.imshow(img_result, cmap='gray')
 
-    #%%
-
     # Result
 
     info = plate_infos[longest_idx]
@@ -336,6 +333,3 @@ def anpr(img):
 
     plt.figure(figsize=(12, 10))
     plt.imshow(img_out)
-
-
-    # %%
