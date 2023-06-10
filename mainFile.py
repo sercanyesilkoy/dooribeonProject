@@ -96,3 +96,4 @@ while True:
                         bbox_image = original_frame[y1:y2, x1:x2]  # Crop the image to the bounding box
                         cv2.imshow(f'capture{countG}', bbox_image)
                         filename = f'capture{countG}.png'
+                        anpr(filename)
