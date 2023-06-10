@@ -5,8 +5,9 @@ import pytesseract
 plt.style.use('dark_background')
 
 
-# Read Input Image
+
 def anpr(img):
+    # Read Input Image
     img_ori = cv2.imread(img)
 
     height, width, channel = img_ori.shape
@@ -320,16 +321,16 @@ def anpr(img):
 
     # Result
 
-    info = plate_infos[longest_idx]
-    chars = plate_chars[longest_idx]
+    #info = plate_infos[longest_idx]
+    #chars = plate_chars[longest_idx]
 
-    print(chars)
+    #print(chars)
 
-    img_out = img_ori.copy()
+    #img_out = img_ori.copy()
 
-    cv2.rectangle(img_out, pt1=(info['x'], info['y']), pt2=(info['x']+info['w'], info['y']+info['h']), color=(255,0,0), thickness=2)
+    #cv2.rectangle(img_out, pt1=(info['x'], info['y']), pt2=(info['x']+info['w'], info['y']+info['h']), color=(255,0,0), thickness=2)
 
-    cv2.imwrite(chars + '.jpg', img_out)
+    #cv2.imwrite(chars + '.jpg', img_out)
 
-    plt.figure(figsize=(12, 10))
-    plt.imshow(img_out)
+    #plt.figure(figsize=(12, 10))
+    #plt.imshow(img_out)
