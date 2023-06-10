@@ -97,3 +97,5 @@ while True:
                         cv2.imshow(f'capture{countG}', bbox_image)
                         filename = f'capture{countG}.png'
                         anpr(filename)
+                        # saving image in local storage
+                        cv2.imwrite(filename, bbox_image)
