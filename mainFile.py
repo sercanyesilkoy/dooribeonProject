@@ -73,9 +73,14 @@ while True:
                 cv2.circle(frame,(cx,cy),5,(0,200,0),cv2.FILLED)      
                 currentArray = np.array([x1,y1,x2,y2,conf])
                 dedections = np.vstack((dedections,currentArray))
-                
+
                 if truckOrBus_counter >= 1:
                     stop = "TRUCK"
                 elif car_counter > 3 and person_counter < 3:
                     stop = "PEDESTRIAN"
-                elif person_counter > 3 and truckOrBus_counter <                                               
+                elif person_counter > 3 and truckOrBus_counter < 1:
+                    stop = "CAR"
+                elif person_counter > 0 and truckOrBus_counter < 1 and car_counter < 4:
+                    stop = "CAR"
+                elif person_counter > car_counter and car_counter < 4:
+                    stop = "CAR"                                              
