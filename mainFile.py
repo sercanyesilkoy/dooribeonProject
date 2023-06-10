@@ -70,4 +70,6 @@ while True:
                 
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 200, 0), 2)
                 cx,cy = x1+w //2, y1+h//2
-                cv2.circle(frame,(cx,cy),5,(0,200,0),cv2.FILLED)                    
+                cv2.circle(frame,(cx,cy),5,(0,200,0),cv2.FILLED)      
+                currentArray = np.array([x1,y1,x2,y2,conf])
+                dedections = np.vstack((dedections,currentArray))                              
