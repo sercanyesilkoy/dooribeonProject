@@ -89,3 +89,5 @@ while True:
                     stop_flag = True
                 else:
                     stop_flag = False             
+
+                if ((x1 <= limits[2] and x2 >= limits[0]) and (y1 <= limits[3] and y2 >= limits[1])):
