@@ -19,19 +19,6 @@ def anpr(img):
     plt.figure(figsize=(12, 10))
     plt.imshow(gray, cmap='gray')
 
-    # Maximize Contrast (Optimal)
-
-    structuringElement = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-
-    imgTopHat = cv2.morphologyEx(gray, cv2.MORPH_TOPHAT, structuringElement)
-    imgBlackHat = cv2.morphologyEx(gray, cv2.MORPH_BLACKHAT, structuringElement)
-
-    imgGrayscalePlusTopHat = cv2.add(gray, imgTopHat)
-    gray = cv2.subtract(imgGrayscalePlusTopHat, imgBlackHat)
-
-    plt.figure(figsize=(12, 10))
-    plt.imshow(gray, cmap='gray')
-
     # Adaptive Thresholding
 
     img_blurred = cv2.GaussianBlur(gray, ksize=(5, 5), sigmaX=0)
