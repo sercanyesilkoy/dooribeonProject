@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import pytesseract
 plt.style.use('dark_background')
 
-
-
 def anpr(img):
     # Read Input Image
     img_ori = cv2.imread(img)
@@ -15,13 +13,11 @@ def anpr(img):
     plt.figure(figsize=(12,10))
     plt.imshow(img_ori, cmap='gray')
 
-
     # Convert Image to Grayscale
 
     gray = cv2.cvtColor(img_ori, cv2.COLOR_BGR2GRAY)
     plt.figure(figsize=(12, 10))
     plt.imshow(gray, cmap='gray')
-
 
     # Maximize Contrast (Optimal)
 
@@ -118,7 +114,6 @@ def anpr(img):
     plt.figure(figsize=(12, 10))
     plt.imshow(temp_result, cmap='gray')
 
-
     # Select Candidates by Arrangement of Contours
 
     MAX_DIAG_MULTIPLYER = 5 
@@ -198,8 +193,7 @@ def anpr(img):
     plt.figure(figsize=(12, 10))
     plt.imshow(temp_result, cmap='gray')
 
-
-    # ## Rotate Plate Images
+    # Rotate Plate Images
 
     PLATE_WIDTH_PADDING = 1.3 # 1.3
     PLATE_HEIGHT_PADDING = 1.5 # 1.5
@@ -251,7 +245,6 @@ def anpr(img):
             'w': int(plate_width),
             'h': int(plate_height)
         })
-
 
     # Another Thresholding to Find Chars
 
