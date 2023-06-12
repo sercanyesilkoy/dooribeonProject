@@ -123,3 +123,7 @@ while True:
                             # If the condition is not met, remove the temporary file
                             countG -= 1
                             os.remove(temp_filename)
+
+    resultsTracker = tracker.update(dedections)
+
+    cv2.line(frame,(limits[0],limits[1]),(limits[2],limits[3]),(0,0,255),5)                            
