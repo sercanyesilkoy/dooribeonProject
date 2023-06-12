@@ -107,3 +107,6 @@ while True:
                             # Check if the directory already exists. If not, create it.
                             if not os.path.exists(dir_name):
                                 os.makedirs(dir_name)
+                            save_path = os.path.join(dir_name, f'capture_for-{countG}-{currentClass}-{int(Id)}-{result}.png')       
+                            os.rename(temp_filename, save_path)
+
