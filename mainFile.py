@@ -7,6 +7,9 @@ import numpy as np
 import math
 from sort import *
 from yolov5 import YOLOv5
+import os
+from ANPR import *
+
 
 
 # cap = cv2.VideoCapture(0)
@@ -101,4 +104,6 @@ while True:
                             print(result)
                             cv2.imshow(f'capture_for-{currentClass}-{int(Id)}-{result}', bbox_image) #Show the file which is succesfully on recognition
                             dir_name = f"{currentClass}-{int(Id)}" # Define the directory name using the class and tracking ID                            
-
+                            # Check if the directory already exists. If not, create it.
+                            if not os.path.exists(dir_name):
+                                os.makedirs(dir_name)
