@@ -109,4 +109,7 @@ while True:
                                 os.makedirs(dir_name)
                             save_path = os.path.join(dir_name, f'capture_for-{countG}-{currentClass}-{int(Id)}-{result}.png')       
                             os.rename(temp_filename, save_path)
+                            txt_path = os.path.join(dir_name, f'anpr_results_for-{currentClass}-{int(Id)}.txt')
+                            # Open the file in append mode
+                            f = open(txt_path, 'a')                            
 
