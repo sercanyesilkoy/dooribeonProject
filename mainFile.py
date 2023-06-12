@@ -97,3 +97,6 @@ while True:
                         temp_filename = f'temp_capture{countG}.png'                        
                         cv2.imwrite(temp_filename, bbox_image)  # Save the image temporarily
                         recognitionBool, result = anpr(temp_filename)
+                        if recognitionBool is True:  # If recognition is not False wich means car plate can readble by anpr 
+                            print(result)
+
