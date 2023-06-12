@@ -99,4 +99,6 @@ while True:
                         recognitionBool, result = anpr(temp_filename)
                         if recognitionBool is True:  # If recognition is not False wich means car plate can readble by anpr 
                             print(result)
+                            cv2.imshow(f'capture_for-{currentClass}-{int(Id)}-{result}', bbox_image) #Show the file which is succesfully on recognition
+                            dir_name = f"{currentClass}-{int(Id)}" # Define the directory name using the class and tracking ID                            
 
