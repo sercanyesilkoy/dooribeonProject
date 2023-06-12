@@ -112,4 +112,10 @@ while True:
                             txt_path = os.path.join(dir_name, f'anpr_results_for-{currentClass}-{int(Id)}.txt')
                             # Open the file in append mode
                             f = open(txt_path, 'a')                            
-
+                            
+                            try:
+                                # Write the ANPR result to the file
+                                f.write(result + '\n')
+                            finally:
+                                # Ensure the file is closed, even if an error occurs
+                                f.close()
