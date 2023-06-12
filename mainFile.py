@@ -119,3 +119,7 @@ while True:
                             finally:
                                 # Ensure the file is closed, even if an error occurs
                                 f.close()
+                        else:
+                            # If the condition is not met, remove the temporary file
+                            countG -= 1
+                            os.remove(temp_filename)
