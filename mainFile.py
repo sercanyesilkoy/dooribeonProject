@@ -94,8 +94,6 @@ while True:
                     if currentClass != "person":
                         countG += 1
                         bbox_image = original_frame[y1:y2, x1:x2]  # Crop the image to the bounding box
-                        cv2.imshow(f'capture{countG}', bbox_image)
-                        filename = f'capture{countG}.png'
-                        anpr(filename)
-                        # saving image in local storage
-                        cv2.imwrite(filename, bbox_image)
+                        temp_filename = f'temp_capture{countG}.png'                        
+                        cv2.imwrite(temp_filename, bbox_image)  # Save the image temporarily
+                        recognitionBool, result = anpr(temp_filename)
