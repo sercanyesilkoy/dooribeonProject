@@ -237,7 +237,8 @@ def anpr(img):
 
     longest_idx, longest_text = -1, 0
     plate_chars = []
-
+    recognition = False
+    result =''
     for i, plate_img in enumerate(plate_imgs):
         plate_img = cv2.resize(plate_img, dsize=(0, 0), fx=1.6, fy=1.6)
         _, plate_img = cv2.threshold(plate_img, thresh=0.0, maxval=255.0, type=cv2.THRESH_BINARY | cv2.THRESH_OTSU)
@@ -275,7 +276,6 @@ def anpr(img):
         chars = pytesseract.image_to_string(img_result, lang='kor', config='--psm 7 --oem 0')
         
         result_chars = ''
-        has_digit = False
         for c in chars:
             if (ord('가') == ord(c) or ord('나') == ord(c) or ord('다') == ord(c) or ord('라') == ord(c) or ord('마') == ord(c) or 
                 ord('거') == ord(c) or ord('너') == ord(c) or ord('더') == ord(c) or ord('러') == ord(c) or ord('머') == ord(c) or
@@ -286,31 +286,13 @@ def anpr(img):
                 ord('우') == ord(c) or ord('주') == ord(c) or ord('아') == ord(c) or ord('바') == ord(c) or ord('사') == ord(c) or
                 ord('자') == ord(c) or ord('배') == ord(c) or ord('허') == ord(c) or ord('하') == ord(c) or ord('호') == ord(c) or
                 c.isdigit()):
-                if c.isdigit():
-                    has_digit = True
                 result_chars += c
-        
+
+        if (len(result_chars) >= 4) :
+            recognition = True
+            result = result_chars
         print(result_chars)
-        plate_chars.append(result_chars)
-
-        if has_digit and len(result_chars) > longest_text:
-            longest_idx = i
-
-        plt.subplot(len(plate_imgs), 1, i+1)
+        #plt.subplot(len(plate_imgs), 1, i+1)
         plt.imshow(img_result, cmap='gray')
 
-    # Result
-
-    #info = plate_infos[longest_idx]
-    #chars = plate_chars[longest_idx]
-
-    #print(chars)
-
-    #img_out = img_ori.copy()
-
-    #cv2.rectangle(img_out, pt1=(info['x'], info['y']), pt2=(info['x']+info['w'], info['y']+info['h']), color=(255,0,0), thickness=2)
-
-    #cv2.imwrite(chars + '.jpg', img_out)
-
-    #plt.figure(figsize=(12, 10))
-    #plt.imshow(img_out)
+    return recognition, result
