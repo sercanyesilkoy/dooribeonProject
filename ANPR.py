@@ -277,6 +277,7 @@ def anpr(img):
         
         result_chars = ''
         for c in chars:
+            # 한국 번호판에 들어갈 수 있는 문자들 및 숫자가 인식되었을때만 결과로 출력
             if (ord('가') == ord(c) or ord('나') == ord(c) or ord('다') == ord(c) or ord('라') == ord(c) or ord('마') == ord(c) or 
                 ord('거') == ord(c) or ord('너') == ord(c) or ord('더') == ord(c) or ord('러') == ord(c) or ord('머') == ord(c) or
                 ord('버') == ord(c) or ord('서') == ord(c) or ord('어') == ord(c) or ord('저') == ord(c) or ord('고') == ord(c) or
@@ -285,9 +286,10 @@ def anpr(img):
                 ord('두') == ord(c) or ord('루') == ord(c) or ord('무') == ord(c) or ord('부') == ord(c) or ord('수') == ord(c) or
                 ord('우') == ord(c) or ord('주') == ord(c) or ord('아') == ord(c) or ord('바') == ord(c) or ord('사') == ord(c) or
                 ord('자') == ord(c) or ord('배') == ord(c) or ord('허') == ord(c) or ord('하') == ord(c) or ord('호') == ord(c) or
-                c.isdigit()):
+                c.isdigit()): 
                 result_chars += c
 
+        # 인식된 글자가 4자리 이상일때만 번호판으로 인정
         if (len(result_chars) >= 4) :
             recognition = True
             result = result_chars
