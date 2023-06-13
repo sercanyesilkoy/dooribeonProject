@@ -138,4 +138,7 @@ while True:
     cv2.putText(frame, f'Car count: {car_counter}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(frame, f'Person count: {person_counter}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(frame, f'Truck/Bus count: {truckOrBus_counter}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.putText(frame, f'STOP: {stop}', (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)        
+    cv2.putText(frame, f'STOP: {stop}', (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)      
+    
+    cv2.imshow('frame', frame)
+    cv2.waitKey(0)        
