@@ -134,3 +134,8 @@ while True:
         cv2.rectangle(frame, (x3, y3), (x4, y4), (0, 0, 255), 2)
         # cvzone.putTextRect(frame, f'{int(Id)} {currentClass}', (max(0, x3), max(35, y3)))  # confidence level
         print(result)    
+
+    cv2.putText(frame, f'Car count: {car_counter}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'Person count: {person_counter}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'Truck/Bus count: {truckOrBus_counter}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'STOP: {stop}', (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)        
