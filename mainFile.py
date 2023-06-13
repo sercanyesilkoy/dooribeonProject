@@ -127,3 +127,10 @@ while True:
     resultsTracker = tracker.update(dedections)
 
     cv2.line(frame,(limits[0],limits[1]),(limits[2],limits[3]),(0,0,255),5)                            
+    
+    for result in resultsTracker:
+        x3,y3,x4,y4,Id = result
+        x3,y3,x4,y4 = int(x3),int(y3),int(x4),int(y4)
+        cv2.rectangle(frame, (x3, y3), (x4, y4), (0, 0, 255), 2)
+        # cvzone.putTextRect(frame, f'{int(Id)} {currentClass}', (max(0, x3), max(35, y3)))  # confidence level
+        print(result)    
