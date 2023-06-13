@@ -145,3 +145,6 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):  # press q to quit
         break    
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()    
