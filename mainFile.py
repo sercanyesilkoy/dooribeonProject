@@ -106,9 +106,10 @@ while True:
                             os.rename(temp_filename, save_path)
                             # Define the text file path
                             txt_path = os.path.join(dir_name, f'anpr_results_for-{currentClass}-{int(Id)}.txt')
-                            cv2.putText(frame, f'recognition?: {recognitionBool}', (10, 160), cv2.FONT_HERSHEY_SIMPLEX,
-                                        1, (0, 255, 0), 2)
-
+                            # cv2.putText(frame, f'recognition?: {recognitionBool}', (10, 160), cv2.FONT_HERSHEY_SIMPLEX,
+                            #             1, (0, 255, 0), 2)
+                            cv2.putText(frame, f'VIOLATION: Type: {currentClass} - Plate Num: {result} - ID: {int(Id)}', (10, 160), cv2.FONT_HERSHEY_SIMPLEX,
+                                        1, (0, 0, 255), 2)
                             # Open the file in append mode
                             f = open(txt_path, 'a')
 
@@ -131,8 +132,12 @@ while True:
                 cv2.rectangle(frame, (x3, y3), (x4, y4), (0, 0, 255), 2)
                 cvzone.putTextRect(frame, f'{int(Id)}', (max(0, x4), max(-35, y4)),scale=1.5, thickness=2)  # confidence level
                 print(result)
-                
+
     cv2.line(frame,(limits[0],limits[1]),(limits[2],limits[3]),(0,0,255),5)
+
+
+
+
     cv2.putText(frame, f'Car count: {car_counter}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(frame, f'Person count: {person_counter}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.putText(frame, f'Truck/Bus count: {truckOrBus_counter}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
@@ -148,3 +153,5 @@ while True:
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+
+
