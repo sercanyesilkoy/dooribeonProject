@@ -74,10 +74,11 @@ def anpr(img):
 
     # Select Candidates by Char Size
 
+    # 번호판의 문자가 될수 있는 rectangle 후보군의 조건
     MIN_AREA = 80
     MIN_WIDTH, MIN_HEIGHT = 2, 8
-    MIN_RATIO, MAX_RATIO = 0.25, 1.0
-
+    MIN_RATIO, MAX_RATIO = 0.25, 1.0 # 번호판의 글자는 납작하기보단 길쭉하므로 비율을 이렇게 지정함
+    
     possible_contours = []
 
     cnt = 0
@@ -103,12 +104,13 @@ def anpr(img):
 
     # Select Candidates by Arrangement of Contours
 
-    MAX_DIAG_MULTIPLYER = 5 
-    MAX_ANGLE_DIFF = 12.0 
-    MAX_AREA_DIFF = 0.5 
-    MAX_WIDTH_DIFF = 0.8
-    MAX_HEIGHT_DIFF = 0.2
-    MIN_N_MATCHED = 3 
+    # 번호판이 될 수 있는 후보들의 관계 조건
+    MAX_DIAG_MULTIPLYER = 5 # rectangle 사이의 거리
+    MAX_ANGLE_DIFF = 12.0 # recteangle 간의 각도
+    MAX_AREA_DIFF = 0.5 # rectangle 간의 넓이 차
+    MAX_WIDTH_DIFF = 0.8 # rectangle 간의 너비 차
+    MAX_HEIGHT_DIFF = 0.2 # rectangle 간의 높이 차
+    MIN_N_MATCHED = 3 # rectangle 집합합의 최소 갯수
 
     def find_chars(contour_list):
         matched_result_idx = []
